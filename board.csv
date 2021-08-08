@@ -1,0 +1,40 @@
+0;GO;ffffff;;;;;;;;;;GO;
+1;Brown - 1 ;722727;60;2;10;30;90;160;250;50;30;Terain;B1
+2;Community-Chest;7669ee;;;;;;;;;;Card;
+3;Brown - 2;722727;60;4;20;60;180;320;450;50;30;Terain;B2
+4;Incom Tax;ffffff;;;;;;;;;;Tax;200
+5;Train - Station;bebebe;200;25;50;100;200;;;;;Train;T1
+6;Light-Blue-1;62eeff;100;6;30;90;270;400;550;50;50;Terain;Bl1
+7;Chance;eec269;;;;;;;;;;Card;
+8;Light-Blue-2;62eeff;100;6;30;90;270;400;550;50;50;Terain;Bl2
+9;Light-Blue-3;62eeff;120;8;40;100;300;450;600;60;50;Terain;Bl3
+10;Jail;ffffff;;;;;;;;;;Jail;
+11;Pink - 1;ff00f6;140;10;50;150;450;625;750;100;70;Terain;P1
+12;Electricity;bebebe;150;;;;;;;;;Works;W1
+13;Pink - 2;ff00f6;140;10;50;150;450;625;750;100;70;Terain;P2
+14;Pink - 3;ff00f6;160;12;60;180;500;700;900;100;80;Terain;P3
+15;Train - Station;bebebe;200;25;50;100;200;;;;;Train;T2
+16;Orange - 1;ff8900;180;14;70;200;550;750;950;100;90;Terain;O1
+17;Community-Chest;7669ee;;;;;;;;;;Card;
+18;Orange - 2;ff8900;180;14;70;200;550;750;950;100;90;Terain;O2
+19;Orange - 3;ff8900;200;16;80;220;600;800;1000;100;100;Terain;O3
+20;Park;ffffff;;;;;;;;;;Park;
+21;Red - 1;ff0000;220;18;90;250;700;875;1050;150;110;Terain;R1
+22;Red -2;ff0000;220;18;90;250;700;875;1050;150;110;Terain;R2
+23;Chance;eec269;;;;;;;;;;Card;
+24;Red -3;ff0000;240;20;100;300;750;925;1100;150;120;Terain;R3
+25;Train - Station;bebebe;200;25;50;100;200;;;;;Train;T3
+26;Yellow - 1;fff600;260;22;110;330;800;975;1150;150;130;Terain;Y1
+27;Yellow - 2;fff600;260;22;110;330;800;975;1150;150;130;Terain;Y2
+28;Water;bebebe;150;;;;;;;;;Works;W2
+29;Yellow - 3;fff600;280;24;120;360;850;1025;1200;150;140;Terain;Y3
+30;Go to Jail;ffffff;;;;;;;;;;Go to Jail;
+31;Green - 1;008b23;300;26;130;390;900;1100;1275;200;150;Terain;G1
+32;Green - 2;008b23;300;26;130;390;900;1100;1275;200;150;Terain;G2
+33;Community-Chest;7669ee;;;;;;;;;;Card;
+34;Green - 3;008b23;320;28;150;450;1000;1200;1400;200;160;Terain;G3
+35;Train - Station;bebebe;200;25;50;100;200;;;;;Train;T4
+36;Chance;eec269;;;;;;;;;;Card;
+37;Dark - Blue - 1;00267e;350;35;175;500;1100;1300;1500;200;175;Terain;DB1
+38;Super Tax;ffffff;;;;;;;;;;Tax;100
+39;Dark - Blue - 2;00267e;400;50;200;600;1400;1700;2000;200;200;Terain;DB2
