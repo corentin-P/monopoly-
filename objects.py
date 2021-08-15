@@ -10,15 +10,18 @@ class Player(pygame.sprite.Sprite):
         self.position = 0
         self.position2 = 0
         self.places = places
+        self.cards = []
         self.arial_font = pygame.font.SysFont("arial", 30, True, True)
+        self.arial_font2 = pygame.font.SysFont("arial", 17, True, True)
         self.gold_txt = self.arial_font.render(str(self.gold), True, "#bf8200")
         self.place_txt = self.arial_font.render(self.places[self.position]["Name"], True, "#ffffff")
         self.name_txt = self.arial_font.render(self.name, True, "#ffffff")
-        self.cards = []
+
         self.window_pg = window_pg
         self.lastest_position_x = position
         self.lastest_position_y = position
         self.buy_rect= pygame.Rect((800, 100), (90, 40))
+        self.cards_rect = pygame.Rect((1060, 100), (130, 600))
         self.buy = True
 
 
@@ -30,6 +33,8 @@ class Player(pygame.sprite.Sprite):
         self.buy= True
         pygame.draw.circle(self.window_pg, "#"+cards_color[self.position-de], (self.lastest_position_x, self.lastest_position_y), 20)
         self.window_pg.fill("#000000", pygame.Rect((800, 100), (250, 50)))
+        self.window_pg.fill("#000000", self.cards_rect)
+
 
         if 10<self.position<20:
             self.position2 = self.position-10
@@ -70,3 +75,8 @@ class Player(pygame.sprite.Sprite):
             pygame.draw.rect(self.window_pg, "#FFFFFF",self.buy_rect)
         if self.places[self.position]["Class"]=="Tax":
             self.gold -= int(self.places[self.position]["Cost"])
+
+    def BlitCards(self):
+        for i in range(len(self.cards)):
+            self.cards_txt = self.arial_font2.render(self.cards[i], True, "#FFFFFF")
+            self.window_pg.blit(self.cards_txt, pygame.Rect((1060,100+20*i),(140,20)))
