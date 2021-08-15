@@ -73,6 +73,7 @@ while launched:
         window_pg.blit(player2.place_txt, (850, 50))
         window_pg.blit(player2.name_txt, (200, 200))
         player2.BlitCards()
+
         if player2.buy == True and places[player2.position]["Name"] not in player2.cards and (
                 player2.places[player2.position]["Class"] == "Terain" or player2.places[player2.position][
             "Class"] == "Train" or player2.places[player2.position]["Class"] == "Works") and places[player2.position]["Name"] not in player1.cards:
