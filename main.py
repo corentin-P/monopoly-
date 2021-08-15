@@ -55,40 +55,13 @@ while launched:
     window_pg.fill("#000000", pygame.Rect((200, 200), (150, 50)))
 
     if w_player == 1:
-        player1.gold_txt = player1.arial_font.render(str(player1.gold), True, "#bf8200")
-        window_pg.blit(player1.gold_txt, (1090, 10))
-        window_pg.blit(player1.place_txt, (850, 50))
-        window_pg.blit(player1.name_txt, (200,200))
-        player1.BlitCards()
-        if player1.buy == True and places[player1.position]["Name"] not in player1.cards and (player1.places[player1.position]["Class"] == "Terain" or player1.places[player1.position]["Class"] == "Train" or player1.places[player1.position]["Class"] == "Works") and places[player1.position]["Name"] not in player2.cards:
-            window_pg.blit(txt_buy, player1.buy_rect)
-        else:
-            window_pg.fill("#000000", pygame.Rect((800, 100), (250, 50)))
-        if places[player1.position]["Name"] in player1.cards:
-            window_pg.blit(txt_possessed, player1.buy_rect)
-
+        PlayerAttributes(player1, player2, window_pg, places)
     elif w_player == 2:
-        player2.gold_txt = player2.arial_font.render(str(player2.gold), True, "#bf8200")
-        window_pg.blit(player2.gold_txt, (1090, 10))
-        window_pg.blit(player2.place_txt, (850, 50))
-        window_pg.blit(player2.name_txt, (200, 200))
-        player2.BlitCards()
-
-        if player2.buy == True and places[player2.position]["Name"] not in player2.cards and (
-                player2.places[player2.position]["Class"] == "Terain" or player2.places[player2.position][
-            "Class"] == "Train" or player2.places[player2.position]["Class"] == "Works") and places[player2.position]["Name"] not in player1.cards:
-            window_pg.blit(txt_buy, player2.buy_rect)
-        else:
-            window_pg.fill("#000000", pygame.Rect((800, 100), (250, 50)))
-        if places[player2.position]["Name"] in player2.cards:
-            window_pg.blit(txt_possessed, player2.buy_rect)
+        PlayerAttributes(player2, player1, window_pg, places)
 
     window_pg.blit(txt_next_player, (350,200))
     window_pg.blit(image_money, (1170, 10))
     window_pg.blit(txt_jouer, (150, 380))
-
-
-
 
     pygame.display.flip()
     for event in pygame.event.get():
@@ -131,6 +104,7 @@ while launched:
 
 
             if next_click.collidepoint(event.pos):
+                window_pg.fill("#000000", player1.cards_rect)
                 if w_player==1:
                     w_player=2
                 elif w_player==2:

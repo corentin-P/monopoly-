@@ -33,7 +33,7 @@ class Player(pygame.sprite.Sprite):
         self.buy= True
         pygame.draw.circle(self.window_pg, "#"+cards_color[self.position-de], (self.lastest_position_x, self.lastest_position_y), 20)
         self.window_pg.fill("#000000", pygame.Rect((800, 100), (250, 50)))
-        self.window_pg.fill("#000000", self.cards_rect)
+
 
 
         if 10<self.position<20:

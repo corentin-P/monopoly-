@@ -1,5 +1,11 @@
 import pygame
 
+pygame.init()
+
+arial_font = pygame.font.SysFont("arial", 35, True, True)
+txt_possessed = arial_font.render("Possessed !", True, (255,255,255))
+txt_buy = arial_font.render("Buy?", True, (0,0,0))
+
 def DrawGame(window_pg, cards_color):
     for i in range(10):
         pygame.draw.rect(window_pg, "#" + cards_color[i], pygame.Rect((i * 62 + 5, 5), (62, 62)))
@@ -25,3 +31,19 @@ def Pay(player1, player2, cost):
     print(cost)
     player1.gold -= cost
     player2.gold += cost
+
+def PlayerAttributes(player, other_player, window_pg, places):
+    player.gold_txt = player.arial_font.render(str(player.gold), True, "#bf8200")
+    window_pg.blit(player.gold_txt, (1090, 10))
+    window_pg.blit(player.place_txt, (850, 50))
+    window_pg.blit(player.name_txt, (200, 200))
+    player.BlitCards()
+    if player.buy == True and places[player.position]["Name"] not in player.cards and (
+            player.places[player.position]["Class"] == "Terain" or player.places[player.position][
+        "Class"] == "Train" or player.places[player.position]["Class"] == "Works") and places[player.position][
+        "Name"] not in other_player.cards:
+        window_pg.blit(txt_buy, player.buy_rect)
+    else:
+        window_pg.fill("#000000", pygame.Rect((800, 100), (250, 50)))
+    if places[player.position]["Name"] in player.cards:
+        window_pg.blit(txt_possessed, player.buy_rect)
