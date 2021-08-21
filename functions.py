@@ -32,6 +32,30 @@ def Pay(player1, player2, cost):
     player1.gold -= cost
     player2.gold += cost
 
+def HouseCards(places, owned):
+    Terrain = []
+    for i in range(len(places)):
+        if places[i]["Class"]=="Terain":
+            Terrain.append(places[i])
+
+    brown = [Terrain[0]["Name"], Terrain[1]["Name"]]
+    light_blue = [Terrain[2]["Name"], Terrain[3]["Name"], Terrain[4]["Name"]]
+    pink = [Terrain[5]["Name"], Terrain[6]["Name"], Terrain[7]["Name"]]
+    orange = [Terrain[8]["Name"], Terrain[9]["Name"], Terrain[10]["Name"]]
+    red = [Terrain[11]["Name"], Terrain[12]["Name"], Terrain[13]["Name"]]
+    yellow = [Terrain[14]["Name"], Terrain[15]["Name"], Terrain[16]["Name"]]
+    green = [Terrain[17]["Name"], Terrain[18]["Name"], Terrain[19]["Name"]]
+    dark_blue = [Terrain[20]["Name"], Terrain[21]["Name"]]
+
+
+
+    if brown[0 and 1] in owned or light_blue[0 and 1 and 2] in owned or pink[0 and 1 and 2] in owned or orange[0 and 1 and 2] in owned or red[0 and 1 and 2] in owned or yellow[0 and 1 and 2] in owned or green[0 and 1 and 2] in owned or dark_blue[0 and 1] in owned:
+        return True
+    else :
+        return False
+
+
+
 def PlayerAttributes(player, other_player, window_pg, places):
     player.gold_txt = player.arial_font.render(str(player.gold), True, "#bf8200")
     window_pg.blit(player.gold_txt, (1090, 10))
@@ -47,3 +71,7 @@ def PlayerAttributes(player, other_player, window_pg, places):
         window_pg.fill("#000000", pygame.Rect((800, 100), (250, 50)))
     if places[player.position]["Name"] in player.cards:
         window_pg.blit(txt_possessed, player.buy_rect)
+
+    #if HouseCards(places, player.cards)==True:
+     #   window_pg.blit
+

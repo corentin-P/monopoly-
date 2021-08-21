@@ -48,6 +48,8 @@ txt_next_player = arial_font.render("Next player?", False, (0,0,0))
         player1.cards.append(places[i]["Name"])
 """
 
+
+
 launched = True
 while launched:
     window_pg.fill("#000000", pygame.Rect((850, 50), (300, 50)))
