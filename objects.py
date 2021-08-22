@@ -20,7 +20,7 @@ class Player(pygame.sprite.Sprite):
         self.window_pg = window_pg
         self.lastest_position_x = position
         self.lastest_position_y = position
-        self.buy_rect= pygame.Rect((800, 100), (90, 40))
+        self.buy_rect= pygame.Rect((770, 100), (90, 40))
         self.cards_rect = pygame.Rect((1060, 100), (130, 600))
         self.buy = True
 

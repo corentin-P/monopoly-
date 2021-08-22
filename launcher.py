@@ -1,10 +1,12 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
+from main import *
 
 def Valid():
     nbr_players = nbr_players_box.get()
     nbr_gold = nbr_gold_box.get()
+    MonopolyGame()
 
 
 launcher = tk.Tk()

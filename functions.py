@@ -1,10 +1,13 @@
 import pygame
+import tkinter as tk
 
 pygame.init()
 
 arial_font = pygame.font.SysFont("arial", 35, True, True)
-txt_possessed = arial_font.render("Possessed !", True, (255,255,255))
+txt_possessed = arial_font.render("Owned !", True, (255,255,255))
 txt_buy = arial_font.render("Buy?", True, (0,0,0))
+txt_build = arial_font.render("Build?", True, (0,0,0))
+
 
 def DrawGame(window_pg, cards_color):
     for i in range(10):
@@ -49,14 +52,17 @@ def HouseCards(places, owned):
 
 
 
-    if brown[0 and 1] in owned or light_blue[0 and 1 and 2] in owned or pink[0 and 1 and 2] in owned or orange[0 and 1 and 2] in owned or red[0 and 1 and 2] in owned or yellow[0 and 1 and 2] in owned or green[0 and 1 and 2] in owned or dark_blue[0 and 1] in owned:
+    if (brown[0] in owned and brown[1] in owned) or (light_blue[0] in owned and light_blue[1] in owned and light_blue[2] in owned)\
+            or (pink[0] in owned and pink[1] in owned and pink[2] in owned) or (orange[0] in owned and orange[1] in owned and orange[2] in owned )\
+            or (red[0] in owned and red[1] in owned and red[2] in owned)or (yellow[0] in owned and yellow[1] in owned and yellow[2] in owned)\
+            or (green[0] in owned and green[1] in owned and green[2] in owned)or (dark_blue[0] in owned and dark_blue[1] in owned):
         return True
     else :
         return False
 
 
 
-def PlayerAttributes(player, other_player, window_pg, places):
+def PlayerAttributes(player, other_player, window_pg, places, build_rect):
     player.gold_txt = player.arial_font.render(str(player.gold), True, "#bf8200")
     window_pg.blit(player.gold_txt, (1090, 10))
     window_pg.blit(player.place_txt, (850, 50))
@@ -68,10 +74,18 @@ def PlayerAttributes(player, other_player, window_pg, places):
         "Name"] not in other_player.cards:
         window_pg.blit(txt_buy, player.buy_rect)
     else:
-        window_pg.fill("#000000", pygame.Rect((800, 100), (250, 50)))
+        window_pg.fill("#000000", pygame.Rect((770, 100), (250, 50)))
     if places[player.position]["Name"] in player.cards:
         window_pg.blit(txt_possessed, player.buy_rect)
 
-    #if HouseCards(places, player.cards)==True:
-     #   window_pg.blit
+    if HouseCards(places, player.cards)==True:
+        pygame.draw.rect(window_pg, "#FFFFFF", build_rect)
+        window_pg.blit(txt_build, build_rect)
+    else:
+        window_pg.fill("#000000", build_rect)
 
+def BuildApp():
+    build_app = tk.Tk()
+    build_app.title("Build House and Hotels")
+    build_app.geometry("200x200")
+    build_app.mainloop()
