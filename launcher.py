@@ -6,6 +6,7 @@ from main import *
 def Valid():
     nbr_players = nbr_players_box.get()
     nbr_gold = nbr_gold_box.get()
+    launcher.destroy()
     MonopolyGame()
 
 

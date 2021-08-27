@@ -44,9 +44,9 @@ def MonopolyGame():
     txt_possessed = arial_font.render("owned !", True, (255,255,255))
     txt_next_player = arial_font.render("Next player?", True, (0,0,0))
 
-    for i in range(len(places)):
+    """for i in range(len(places)):
         if places[i]["Class"] == "Terain" or places[i]["Class"] == "Train" or places[i]["Class"] == "Works":
-            player1.cards.append(places[i]["Name"])
+            player1.cards.append(places[i]["Name"])"""
 
 
 
@@ -69,6 +69,7 @@ def MonopolyGame():
         for event in pygame.event.get():
             if event.type==pygame.QUIT:
                 launched=False
+
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if de_click.collidepoint(event.pos):
                     de1 = randint(1, 6)
