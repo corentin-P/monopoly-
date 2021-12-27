@@ -1,0 +1,27 @@
+I must do :
+- the tkinter app to build houses and hotels
+- the system of the chance and community chest cards
+- link the launcher to the game (money for the go case and money at the beginning are already done)
+- the swap system (swap cards during the game to have families of cards and can build)
+- the jail system
+- the park system
+
+
+I must do better:
+- the changing of players (if there is a twice, the same player replay, else, we change of player)
+
+
+More ideas :
+- do a chat between the players
+- do an online game
+- add some music and sounds
+
+
+I've done:
+- The drawing of the board
+- The player class and objects
+- The system of movements of the players
+- The money system and the salary system when we pass by the go case
+- The shopping system
+- The payment system between the players
+- A part of the launcher

@@ -1,5 +1,6 @@
 import pygame
 import tkinter as tk
+from tkinter import ttk
 
 pygame.init()
 
@@ -35,7 +36,7 @@ def Pay(player1, player2, cost):
     player1.gold -= cost
     player2.gold += cost
 
-def HouseCards(places, owned):
+def HouseCards(places, owned, player):
     Terrain = []
     for i in range(len(places)):
         if places[i]["Class"]=="Terain":
@@ -50,42 +51,91 @@ def HouseCards(places, owned):
     green = [Terrain[17]["Name"], Terrain[18]["Name"], Terrain[19]["Name"]]
     dark_blue = [Terrain[20]["Name"], Terrain[21]["Name"]]
 
+    #if the player had a family of cards, it will add this family to his collection
+    if (brown[0] in owned and brown[1] in owned) and brown not in player.families_cards:
+        player.families_cards.append(brown)
+    if (light_blue[0] in owned and light_blue[1] in owned and light_blue[2] in owned) and light_blue not in player.families_cards:
+        player.families_cards.append(light_blue)
+    if (pink[0] in owned and pink[1] in owned and pink[2] in owned) and pink not in player.families_cards:
+        player.families_cards.append(pink)
+    if (orange[0] in owned and orange[1] in owned and orange[2] in owned) and orange not in player.families_cards:
+        player.families_cards.append(orange)
+    if (red[0] in owned and red[1] in owned and red[2] in owned) and red not in player.families_cards:
+        player.families_cards.append(red)
+    if (yellow[0] in owned and yellow[1] in owned and yellow[2] in owned) and yellow not in player.families_cards:
+        player.families_cards.append(yellow)
+    if (green[0] in owned and green[1] in owned and green[2] in owned) and green not in player.families_cards:
+        player.families_cards.append(green)
+    if (dark_blue[0] in owned and dark_blue[1] in owned) and dark_blue not in player.families_cards:
+        player.families_cards.append(dark_blue)
 
-
-    if (brown[0] in owned and brown[1] in owned) or (light_blue[0] in owned and light_blue[1] in owned and light_blue[2] in owned)\
-            or (pink[0] in owned and pink[1] in owned and pink[2] in owned) or (orange[0] in owned and orange[1] in owned and orange[2] in owned )\
-            or (red[0] in owned and red[1] in owned and red[2] in owned)or (yellow[0] in owned and yellow[1] in owned and yellow[2] in owned)\
-            or (green[0] in owned and green[1] in owned and green[2] in owned)or (dark_blue[0] in owned and dark_blue[1] in owned):
+    #return True if the player had a family
+    if len(player.families_cards) != 0:
         return True
-    else :
+    else:
         return False
 
-
-
 def PlayerAttributes(player, other_player, window_pg, places, build_rect):
+
+    #Set the font for the text of the gold of the player
     player.gold_txt = player.arial_font.render(str(player.gold), True, "#bf8200")
+
+    #Show the gold, the place and the name of the player
     window_pg.blit(player.gold_txt, (1090, 10))
     window_pg.blit(player.place_txt, (850, 50))
     window_pg.blit(player.name_txt, (200, 200))
+
+    #Show all the cards of the Player
     player.BlitCards()
-    if player.buy == True and places[player.position]["Name"] not in player.cards and (
+
+    #Show the buy text
+    if places[player.position]["Name"] not in player.cards and (
             player.places[player.position]["Class"] == "Terain" or player.places[player.position][
         "Class"] == "Train" or player.places[player.position]["Class"] == "Works") and places[player.position][
-        "Name"] not in other_player.cards:
+        "Name"] not in other_player.cards and player.gold >=int(places[player.position]["Cost"]):
+
         window_pg.blit(txt_buy, player.buy_rect)
     else:
         window_pg.fill("#000000", pygame.Rect((770, 100), (250, 50)))
     if places[player.position]["Name"] in player.cards:
         window_pg.blit(txt_possessed, player.buy_rect)
 
-    if HouseCards(places, player.cards)==True:
+    #Player can build houses or not
+    if HouseCards(places, player.cards, player)==True:
         pygame.draw.rect(window_pg, "#FFFFFF", build_rect)
         window_pg.blit(txt_build, build_rect)
     else:
         window_pg.fill("#000000", build_rect)
 
-def BuildApp():
+def Valid():
+    print("v")
+
+def BuildApp(player):
+    house_get = tk.IntVar
+    hotel_get = tk.IntVar
     build_app = tk.Tk()
-    build_app.title("Build House and Hotels")
+    build_app.title("Build House and Hotels?")
     build_app.geometry("200x200")
+
+    house_labels = tk.Label(build_app, text = "construire des maisons?")
+    hotels_labels = tk.Label(build_app, text = "construire des hotels?")
+
+    build_box = ttk.Combobox(build_app, values=player.families_cards)
+    build_box['state'] = 'readonly'
+    build_box.current(0)
+
+    house = tk.Checkbutton(build_app, variable = house_get, onvalue = 1, offvalue = 0)
+    hotel = tk.Checkbutton(build_app, variable = hotel_get, onvalue = 1, offvalue = 0)
+
+    valid_button = tk.Button(build_app, text="Valid", command=Valid)
+
+    #print(hotel_get.get(hotel_get))
+    build_box.grid(row = 0, column = 1)
+    house.grid(row = 1, column = 0)
+    house_labels.grid(row = 1, column = 1)
+    hotel.grid(row=2, column=0)
+    hotels_labels.grid(row=2, column=1)
+    valid_button.grid(row = 3, column = 3)
+
     build_app.mainloop()
+

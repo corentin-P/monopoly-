@@ -3,25 +3,28 @@ from tkinter import ttk
 from tkinter import messagebox
 from main import *
 
+#if we click on the valid button in the launcher we valid the settings and lauch the game
 def Valid():
     nbr_players = nbr_players_box.get()
     nbr_gold = nbr_gold_box.get()
-    park = park_box.get()
-    go = go_box.get()
+    nbr_gold_go = go_box.get()
     launcher.destroy()
-    MonopolyGame()
+    MonopolyGame(nbr_gold, nbr_gold_go)
 
 
+#Set the window, his name and his geometry
 launcher = tk.Tk()
-
 launcher.title("Monopoly Launcher")
 launcher.geometry("800x600")
 
+#All the labels
 label_welcome= tk.Label(launcher, text="Welcome to the Monopoly Launcher!\n")
 label_players= tk.Label(launcher, text="How many players do you want?")
 label_gold= tk.Label(launcher, text="How many dollars do you want?")
 label_park = tk.Label(launcher, text = "\nIf a player go on the park, does he get money?")
 label_go = tk.Label(launcher, text= "\nIf a player go on the Go case, how many gold does he receive?")
+
+#All the comboboxes
 nbr_players_box = ttk.Combobox(launcher,values=["2","3","4"])
 nbr_players_box['state'] = 'readonly'
 nbr_players_box.current(0)
@@ -33,12 +36,11 @@ park_box.current(0)
 go_box = ttk.Combobox(launcher, values = [200, 300])
 go_box['state']='readonly'
 go_box.current(0)
+
+#The valid button
 valid_button = tk.Button(launcher, text = "Valid", command = Valid)
 
-
-
-
-
+#Show all the labels, the boxes and the buttons
 label_players.grid(row=2, column = 1)
 nbr_players_box.grid(row=3, column = 1)
 label_gold.grid(row=2, column = 3)
@@ -48,11 +50,13 @@ park_box.grid(row= 5, column = 1)
 label_go.grid(row = 4, column = 3)
 go_box.grid(row = 5, column =3)
 valid_button.grid(row = 10, column = 3)
-#nombre de joueurs
-#argent de départ
-#parcs gratuit qui redonne de l'argent ou pas
-#300 dollars au lieu de 200 si tombé sur la case départ
-#
+
+#A rajouter
+"""nombre de joueurs
+argent de départ
+parcs gratuit qui redonne de l'argent ou pas
+300 dollars au lieu de 200 si tombé sur la case départ
+"""
 
 
 
