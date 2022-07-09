@@ -8,7 +8,7 @@ I must do :
 
 
 I must do better:
-- the changing of players (if there is a twice, the same player replay, else, we change of player)
+- the change of players (if there is a twice, the same player replay, else, we change of player)
 
 
 More ideas :
@@ -18,10 +18,10 @@ More ideas :
 
 
 I've done:
-- The drawing of the board
+- The draw of the board
 - The player class and objects
 - The system of movements of the players
-- The money system and the salary system when we pass by the go case
+- The money system and the salary system when we pass through the go case
 - The shopping system
 - The payment system between the players
 - A part of the launcher
