@@ -38,6 +38,7 @@ def MonopolyGame(money_player, nbr_gold_go_case):
     player1 = Player("player1",window_pg, 36, places, (0,0,255), money_player, nbr_gold_go_case)
 
 
+
     w_player = 1
     de1=0
     de2=0
@@ -50,6 +51,7 @@ def MonopolyGame(money_player, nbr_gold_go_case):
     for i in range(len(places)):
         if places[i]["Class"] == "Terain" or places[i]["Class"] == "Train" or places[i]["Class"] == "Works":
             player1.cards.append(places[i]["Name"])
+
 
     #launch the loop for the game
     launched = True
@@ -126,6 +128,7 @@ def MonopolyGame(money_player, nbr_gold_go_case):
                     elif w_player==2:
                         w_player=1
 
+                #if we click on 'Build' it open a new window to build house / hotel
                 if build_rect.collidepoint(event.pos):
                     if w_player ==1:
                         if HouseCards(places, player1.cards, player1)==True:

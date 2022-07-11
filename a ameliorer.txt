@@ -1,14 +1,16 @@
 I must do :
-- the tkinter app to build houses and hotels
-- the system of the chance and community chest cards
+- the tkinter app to build houses and hotels => function/Buildapp + create dict for houses / hotels per place
+- the system of the chance and community chest cards => create new function
 - link the launcher to the game (money for the go case and money at the beginning are already done)
 - the swap system (swap cards during the game to have families of cards and can build)
 - the jail system
 - the park system
+- show the number of dices
 
 
 I must do better:
 - the change of players (if there is a twice, the same player replay, else, we change of player)
+
 
 
 More ideas :
